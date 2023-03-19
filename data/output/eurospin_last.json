@@ -1,17 +1,5 @@
 [
     {
-        "Prodotto": "Yogurt intero bianco cremoso",
-        "Marca": "Land",
-        "Inizio": "16-03",
-        "Scadenza": "26-03",
-        "Prezzo originale": 2.69,
-        "Prezzo": 2.19,
-        "Risparmio": 0.5,
-        "Quantit\u00e0": "8 x 125 g",
-        "Prezzo unitario": null,
-        "img_url": "https://www.eurospin.it/wp-content/uploads/smt/16189501.jpg"
-    },
-    {
         "Prodotto": "Piselli",
         "Marca": "Delizie dal sole",
         "Inizio": "16-03",

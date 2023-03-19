@@ -17,6 +17,8 @@ keywords = ['extravergine',
             'burro'
             ]
 
+with open("../data/output/eurospin_last.json") as json_file:
+    last = json.load(json_file)
 # -----------------------------------------------------------------------------
 # EUROSPIN
 # -----------------------------------------------------------------------------
@@ -28,7 +30,7 @@ items = soup.find_all("div", class_="sn_promo_grid_item_ct")
 #test = soup.find("span", style="color: #808080;")
 #print(test.text.split()[3])
 
-list1 = []
+temp = []
 for item in items:
     
     element = {}
@@ -78,9 +80,16 @@ for item in items:
         
         element['img_url'] = item.find("img", itemprop="image")['src']
         
-        list1.append(element)
-df = pd.DataFrame(list1)
+        temp.append(element)
 
 
-with open("../data/output/eurospin_last.json", "w") as file:
-   json.dump(list1, file, indent=4)
+# confronto con precedente lista offerte ed estrazione di quelle nuove 
+new = []
+for item in temp:
+    if item not in last:
+        new.append(item)
+
+# se ci sono nuove offerte allora salva un nuovo file last
+if new is not None:
+    with open("../data/output/eurospin_last.json", 'w') as json_out:
+        json.dump(new, json_out, indent = 4)
