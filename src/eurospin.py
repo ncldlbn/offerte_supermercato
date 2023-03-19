@@ -1,22 +1,25 @@
 import requests
 import json
 import datetime
-import pandas as pd
 from bs4 import BeautifulSoup
+from TelegramBot import Send_to_Telegram
 
 keywords = ['extravergine',
-            'tonno',
+            "tonno all'olio",
             'mozzarelle',
             'yogurt',
             'fagioli',
             'piselli',
             'lenticchie',
-            'funghi',
+            'funghi trifolati',
             'carciofini',
             'latte',
             'burro'
             ]
 
+with open("../data/output/eurospin_last.json") as json_file:
+    last = json.load(json_file)
+    
 # -----------------------------------------------------------------------------
 # EUROSPIN
 # -----------------------------------------------------------------------------
@@ -28,11 +31,13 @@ items = soup.find_all("div", class_="sn_promo_grid_item_ct")
 #test = soup.find("span", style="color: #808080;")
 #print(test.text.split()[3])
 
-list1 = []
+temp = []
 for item in items:
     
     element = {}
-
+    
+    element['Negozio'] = "Eurospin via Fermi"
+    
     title = item.find("h2", itemprop="name").text
     element['Prodotto'] = title.replace('\n', ' ').capitalize()
     
@@ -78,9 +83,17 @@ for item in items:
         
         element['img_url'] = item.find("img", itemprop="image")['src']
         
-        list1.append(element)
-df = pd.DataFrame(list1)
+        temp.append(element)
 
+# confronto con precedente lista offerte ed estrazione di quelle nuove 
+new = []
+for item in temp:
+    if item not in last:
+        new.append(item)
 
-with open("../data/output/eurospin_last.json", "w") as file:
-   json.dump(list1, file, indent=4)
+# se ci sono nuove offerte allora inviale su telegram e salva nuovo file last
+if new:
+    Send_to_Telegram(new)
+    with open("../data/output/eurospin_last.json", 'w') as json_out:
+        json.dump(new, json_out, indent = 4)
+    

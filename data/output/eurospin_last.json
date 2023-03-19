@@ -1,17 +1,6 @@
 [
     {
-        "Prodotto": "Yogurt intero bianco cremoso",
-        "Marca": "Land",
-        "Inizio": "16-03",
-        "Scadenza": "26-03",
-        "Prezzo originale": 2.69,
-        "Prezzo": 2.19,
-        "Risparmio": 0.5,
-        "Quantit\u00e0": "8 x 125 g",
-        "Prezzo unitario": null,
-        "img_url": "https://www.eurospin.it/wp-content/uploads/smt/16189501.jpg"
-    },
-    {
+        "Negozio": "Eurospin via Fermi",
         "Prodotto": "Piselli",
         "Marca": "Delizie dal sole",
         "Inizio": "16-03",
@@ -24,6 +13,7 @@
         "img_url": "https://www.eurospin.it/wp-content/uploads/smt/16275201.jpg"
     },
     {
+        "Negozio": "Eurospin via Fermi",
         "Prodotto": "Fagioli borlotti",
         "Marca": "Delizie dal sole",
         "Inizio": "16-03",
@@ -36,42 +26,7 @@
         "img_url": "https://www.eurospin.it/wp-content/uploads/smt/16313501.jpg"
     },
     {
-        "Prodotto": "Insalata di tonno mediterranea",
-        "Marca": "Athena",
-        "Inizio": "16-03",
-        "Scadenza": "26-03",
-        "Prezzo originale": 2.29,
-        "Prezzo": 1.79,
-        "Risparmio": 0.5,
-        "Quantit\u00e0": "230 g",
-        "Prezzo unitario": "7,79 \u20ac/kg",
-        "img_url": "https://www.eurospin.it/wp-content/uploads/smt/16815701.jpg"
-    },
-    {
-        "Prodotto": "Rag\u00f9 con funghi e salsiccia",
-        "Marca": "Delizie dal sole",
-        "Inizio": "16-03",
-        "Scadenza": "26-03",
-        "Prezzo originale": null,
-        "Prezzo": 1.59,
-        "Risparmio": null,
-        "Quantit\u00e0": "400 g",
-        "Prezzo unitario": "3,98 \u20ac/kg",
-        "img_url": "https://www.eurospin.it/wp-content/uploads/smt/16818201.jpg"
-    },
-    {
-        "Prodotto": "Insalata di tonno messicana",
-        "Marca": "Athena",
-        "Inizio": "16-03",
-        "Scadenza": "26-03",
-        "Prezzo originale": 2.29,
-        "Prezzo": 1.79,
-        "Risparmio": 0.5,
-        "Quantit\u00e0": "230 g",
-        "Prezzo unitario": "7,79 \u20ac/kg",
-        "img_url": "https://www.eurospin.it/wp-content/uploads/smt/16822301.jpg"
-    },
-    {
+        "Negozio": "Eurospin via Fermi",
         "Prodotto": "Carciofini spaccati gustosi",
         "Marca": "Delizie dal sole",
         "Inizio": "16-03",
@@ -84,18 +39,7 @@
         "img_url": "https://www.eurospin.it/wp-content/uploads/smt/17365001.jpg"
     },
     {
-        "Prodotto": "Funghi alla pizzaiola sottolio",
-        "Marca": "Delizie dal sole",
-        "Inizio": "16-03",
-        "Scadenza": "26-03",
-        "Prezzo originale": 1.69,
-        "Prezzo": 1.45,
-        "Risparmio": 0.24,
-        "Quantit\u00e0": "285 g",
-        "Prezzo unitario": "5,09 \u20ac/kg",
-        "img_url": "https://www.eurospin.it/wp-content/uploads/smt/2388701.jpg"
-    },
-    {
+        "Negozio": "Eurospin via Fermi",
         "Prodotto": "Tonno all'olio d'oliva",
         "Marca": "Athena",
         "Inizio": "16-03",
@@ -108,30 +52,7 @@
         "img_url": "https://www.eurospin.it/wp-content/uploads/smt/3112001.jpg"
     },
     {
-        "Prodotto": "Funghi champignon",
-        "Marca": "Delizie dal sole",
-        "Inizio": "16-03",
-        "Scadenza": "26-03",
-        "Prezzo originale": 1.79,
-        "Prezzo": 1.29,
-        "Risparmio": 0.5,
-        "Quantit\u00e0": "600 g",
-        "Prezzo unitario": "2,15 \u20ac/kg",
-        "img_url": "https://www.eurospin.it/wp-content/uploads/smt/12195601.jpg"
-    },
-    {
-        "Prodotto": "Burger tonno olive pomodoro, 2 pz",
-        "Marca": "Athena",
-        "Inizio": "16-03",
-        "Scadenza": "26-03",
-        "Prezzo originale": 2.19,
-        "Prezzo": 1.69,
-        "Risparmio": 0.5,
-        "Quantit\u00e0": "160 g",
-        "Prezzo unitario": "10,57 \u20ac/kg",
-        "img_url": "https://www.eurospin.it/wp-content/uploads/smt/16014401.jpg"
-    },
-    {
+        "Negozio": "Eurospin via Fermi",
         "Prodotto": "Mozzarelle ovoline pugliesi",
         "Marca": "Pascoli italiani",
         "Inizio": "16-03",
