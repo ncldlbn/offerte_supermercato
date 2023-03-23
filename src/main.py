@@ -8,14 +8,12 @@ from WebScraping import eurospin1
 # -----------------------------------------------------------------------------
 # URLs PAGINE WEB OFFERTE (aggiungere qui urls altre pagine)
 # -----------------------------------------------------------------------------
-
 # pagina promozioni eurospin Trento
 eurospin1_url = 'https://www.eurospin.it/promozioni/'
 
 # -----------------------------------------------------------------------------
 # FILE e PERCORSI
 # -----------------------------------------------------------------------------
-
 # path to this repo
 path = "/home/nicola/Projects/offerte_supermercato/"
 
@@ -29,7 +27,6 @@ token = path + "data/input/bot.txt"
 # -----------------------------------------------------------------------------
 # MAIN
 # -----------------------------------------------------------------------------
-
 # Scraping pagine web supermercati -> lista offerte il cui nome prodotto
 # corrisponde alle parole chiave del file 'keywords.txt'
 offerte_eurospin1 = eurospin1(eurospin1_url, key_path)
