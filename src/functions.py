@@ -1,19 +1,23 @@
 import telegram
 import datetime
+import sqlite3
 
-def offerte(database):
+def offerte(database_path):
+    database = sqlite3.connect(database_path)
     c = database.cursor()
     ieri = (datetime.date.today() - datetime.timedelta(days=1)).strftime('%d-%m')
     c.execute('DELETE FROM last WHERE Scadenza = ?', (ieri,))
     database.commit()
     c.execute('SELECT * FROM last')
+    old = c.fetchall()
     database.commit()
-    return c.fetchall()
+    database.close()
+    return old
     
     
-def invia_a_Telegram(item):
+def invia_a_Telegram(tkn, item):
     # Impostare il token del bot Telegram
-    bot_info = open("/home/nicola/Projects/offerte_supermercato/data/input/bot.txt","r")
+    bot_info = open(tkn,"r")
     bot_token = bot_info.readline().strip('\n')
     ID = bot_info.readline().strip('\n')
     # Inizializzare il bot Telegram
