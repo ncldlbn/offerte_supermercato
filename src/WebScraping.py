@@ -18,10 +18,8 @@ import requests
 # -----------------------------------------------------------------------------
 # Funzione per pagina promozioni Eurospin Trento.
 def eurospin1(url, key):
-    
     # lista output
     output = []
-    
     # lista parole chiave
     with open(key) as file:
         keywords = file.read().split("\n")
