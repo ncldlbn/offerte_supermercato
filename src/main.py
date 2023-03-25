@@ -18,11 +18,11 @@ eurospin1_url = 'https://www.eurospin.it/promozioni/'
 path = "/home/nicola/Projects/offerte_supermercato/"
 
 # database offerte già inviate
-db_path = path + "data/output/offerte.db"
+db_path = path + "data/offerte.db"
 # lista parole chiave
-key_path = path + "data/input/keywords.txt"
+key_path = path + "data/keywords.txt"
 # token e id bot telegram
-token = path + "data/input/bot.txt"
+token = path + "data/bot.txt"
 
 # -----------------------------------------------------------------------------
 # MAIN
