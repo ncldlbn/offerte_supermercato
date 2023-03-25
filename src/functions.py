@@ -47,8 +47,7 @@ def invia_a_Telegram(tkn, item):
     message = message + '\n\n' + 'L\'offerta scade il ' + item['Scadenza']
     bot.send_document(chat_id=ID, 
                       document=item['img_url'], 
-                      caption=message,
-                      parse_mode=telegram.ParseMode.MARKDOWN)
+                      caption=message)
         
  # -----------------------------------------------------------------------------
  # Salva nel DB un prodotto nuovo
