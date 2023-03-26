@@ -3,13 +3,14 @@
 # -----------------------------------------------------------------------------
 import sqlite3
 from functions import offerte, invia_a_Telegram, salva_nel_db, confronta
-from WebScraping import eurospin1
+from WebScraping import eurospin1, poli
 
 # -----------------------------------------------------------------------------
 # URLs PAGINE WEB OFFERTE (aggiungere qui urls altre pagine)
 # -----------------------------------------------------------------------------
 # pagina promozioni eurospin Trento
 eurospin1_url = 'https://www.eurospin.it/promozioni/'
+poli_url = 'https://www.gruppopoli.it/it/volantino/'
 
 # -----------------------------------------------------------------------------
 # FILE e PERCORSI
@@ -29,10 +30,20 @@ token = path + "data/bot.txt"
 # -----------------------------------------------------------------------------
 # Scraping pagine web supermercati -> lista offerte il cui nome prodotto
 # corrisponde alle parole chiave del file 'keywords.txt'
-offerte_eurospin1 = eurospin1(eurospin1_url, key_path)
+try:
+    offerte_eurospin1 = eurospin1(eurospin1_url, key_path)
+except:
+    print("Errore nello scraping del sito Eurospin")
+    offerte_eurospin1 = []
+    
+try:    
+    offerte_poli = poli(poli_url, key_path)
+except:
+    print("Errore nello scraping del sito Poli")
+    offerte_poli = []
 
 # Lista delle offerte da tutti i supermercati
-tutte_le_offerte = offerte_eurospin1 # + offerte_eurospin2 + offerte_poli + ...
+tutte_le_offerte = offerte_eurospin1 + offerte_poli # + offerte_eurospin2 + ...
 
 # Confronto con lista vecchie offerte (sul db) ed estrazione di quelle nuove
 # che non sono state ancora inviate

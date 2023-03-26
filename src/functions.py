@@ -8,6 +8,7 @@
 import telegram
 import datetime
 import sqlite3
+from urllib.parse import urlparse
 
 # -----------------------------------------------------------------------------
 # Legge il database con le offerte già inviate, elimina le offerte già scadute,
@@ -89,3 +90,14 @@ def confronta(all_offers, old_offers):
         if not presente:
             new_offers.append(new)
     return new_offers
+
+# -----------------------------------------------------------------------------
+# Controlla se un url è valido. Serve per verificare di aver estratto l'url
+# corretto per le immagini dei prodotti.
+# ----------------------------------------------------------------------------- 
+def url_is_valid(url):
+    try:
+        result = urlparse(url)
+        return all([result.scheme, result.netloc])
+    except ValueError:
+        return False
