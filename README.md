@@ -1,10 +1,10 @@
  
 # Offerte Supermercati
 
-This project is made to provide supermarket discounts as text message on Telegram.
-It uses webscraping tools to search for intresting offers on supermarket web pages.
+This project is made to provide supermarket discounts as text messages on Telegram.
+It uses webscraping tools to search for interesting offers on supermarket web pages.
 
-Only the following supermarket web pages are scraped:
+Currently, only the following supermarkets are considered:
 - Eurospin Trento
 
 ## Table of Contents
