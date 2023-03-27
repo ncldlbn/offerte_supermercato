@@ -6,6 +6,7 @@ It uses webscraping tools to search for interesting offers on supermarket web pa
 
 Currently, only the following supermarkets are considered:
 - Eurospin Trento
+- Poli Trento (via Fermi)
 
 ## Table of Contents
 
@@ -39,6 +40,8 @@ with local absolute path like:
 123456789:thisisafaketelegrambottoken
 987654321
 ```
+
+4) Make sure you have chrome/chromium installed
 ## Usage
 
 Run the code as a cron job, for example if you want to run it every day at 1 PM place in the crontab the following line:

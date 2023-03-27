@@ -49,10 +49,24 @@ def invia_a_Telegram(tkn, item):
     bot.send_document(chat_id=ID, 
                       document=item['img_url'], 
                       caption=message)
-        
- # -----------------------------------------------------------------------------
- # Salva nel DB un prodotto nuovo
- # -----------------------------------------------------------------------------   
+ 
+# -----------------------------------------------------------------------------
+# Invia un messaggio su telegram. Funzione per inviare un messaggio di testo in
+# caso di errore nello scraping
+# -----------------------------------------------------------------------------
+def message(tkn, msg):
+    # Impostare il token e l'ID del bot Telegram
+    bot_info = open(tkn,"r")
+    bot_token = bot_info.readline().strip('\n')
+    ID = bot_info.readline().strip('\n')
+    # Inizializzare il bot Telegram
+    bot = telegram.Bot(token=bot_token)
+    # Invia il messaggio
+    bot.send_message(chat_id=ID, text=msg)
+
+# -----------------------------------------------------------------------------
+# Salva nel DB un prodotto nuovo
+# -----------------------------------------------------------------------------
 def salva_nel_db(database, item):
     cursor = database.cursor()
     cursor.execute('INSERT INTO last (Negozio, Prodotto, Marca, Inizio, Scadenza, Prezzo_originale, Prezzo, Risparmio, Prezzo_unitario, Quantità, img_url) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
@@ -101,3 +115,5 @@ def url_is_valid(url):
         return all([result.scheme, result.netloc])
     except ValueError:
         return False
+    
+# Invia un mes

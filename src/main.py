@@ -2,7 +2,7 @@
 # LIBRERIE
 # -----------------------------------------------------------------------------
 import sqlite3
-from functions import offerte, invia_a_Telegram, salva_nel_db, confronta
+from functions import offerte, invia_a_Telegram, salva_nel_db, confronta, message
 from WebScraping import eurospin1, poli
 
 # -----------------------------------------------------------------------------
@@ -33,13 +33,13 @@ token = path + "data/bot.txt"
 try:
     offerte_eurospin1 = eurospin1(eurospin1_url, key_path)
 except:
-    print("Errore nello scraping del sito Eurospin")
+    message("Errore nello scraping del sito Eurospin")
     offerte_eurospin1 = []
     
 try:    
     offerte_poli = poli(poli_url, key_path)
 except:
-    print("Errore nello scraping del sito Poli")
+    message("Errore nello scraping del sito Poli")
     offerte_poli = []
 
 # Lista delle offerte da tutti i supermercati
