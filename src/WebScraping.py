@@ -129,23 +129,43 @@ def poli(url, key):
         prodotto = item.find("div", class_="band-volantino-prodotto-titolo").text.strip()
         if filtro(prodotto, keywords) is True:
             element['Negozio'] = "Poli via Fermi"
-            element['Prodotto'] = prodotto.capitalize()
-            element['Marca'] = item.find("span", class_="band-volantino-prodotto-produttore").text.capitalize()
-            element['Quantità']  =  item.find("span", class_="band-volantino-prodotto-quantita").text
-            # prezzo originale
-            price = item.find("div", class_="band-volantino-prodotto-prezzo-normale").text.replace(",", ".").replace("€", "").strip()
-            if len(price) > 0:
-                element['Prezzo originale'] = float(price)
+            marca = item.find("span", class_="band-volantino-prodotto-produttore")
+            quantita = item.find("span", class_="band-volantino-prodotto-quantita")
+            price = item.find("div", class_="band-volantino-prodotto-prezzo-normale")
+            offer = item.find("div", class_="band-volantino-prodotto-prezzo-scontato")
+            unit_price = item.find("div", class_="band-volantino-prodotto-prezzo-al-kg")
+            if prodotto is not None:
+                element['Prodotto'] = prodotto.capitalize()
+            else:
+                element['Prodotto'] = None
+            if marca is not None:
+                element['Marca'] = marca.text.capitalize()
+            else:
+                element['Marca'] = None
+            if quantita is not None:              
+                element['Quantità'] = quantita.text
+            else:
+                element['Quantità'] = None
+            if price is not None:
+                price = price.text.replace(",", ".").replace("€", "").strip()
+                if len(price) > 0:
+                    element['Prezzo originale'] = float(price)
+                else:
+                    element['Prezzo originale'] = None
             else:
                 element['Prezzo originale'] = None
-            # prezzo offerta
-            offer = item.find("div", class_="band-volantino-prodotto-prezzo-scontato").text.replace(",", ".").replace("€", "").strip()
-            if len(offer) > 0:
-                element['Prezzo'] = float(offer)
+            if offer is not None:
+                offer = offer.text.replace(",", ".").replace("€", "").strip()
+                if len(offer) > 0:
+                    element['Prezzo'] = float(offer)
+                else:
+                    element['Prezzo'] = None
             else:
                 element['Prezzo'] = None
-            # prezzo unitario
-            element['Prezzo unitario'] = item.find("div", class_="band-volantino-prodotto-prezzo-al-kg").text.replace(",", ".").replace("€ ", " €").replace("(", "").replace(")", "").strip()
+            if unit_price is not None:
+                element['Prezzo unitario'] = unit_price.text.replace(",", ".").replace("€ ", " €").replace("(", "").replace(")", "").strip()
+            else:
+                element['Prezzo unitario'] = None
             # Risparmio
             if element['Prezzo'] and element['Prezzo originale']: 
                 element['Risparmio'] = round(element['Prezzo originale']-element['Prezzo'], 2)

@@ -18,7 +18,7 @@ def offerte(database_path):
     database = sqlite3.connect(database_path)
     c = database.cursor()
     ieri = (datetime.date.today() - datetime.timedelta(days=1)).strftime('%d-%m')
-    c.execute('DELETE FROM last WHERE Scadenza = ?', (ieri,))
+    c.execute('DELETE FROM last WHERE Scadenza < ?', (ieri,))
     c.execute('SELECT * FROM last')
     old = c.fetchall()
     database.commit()
